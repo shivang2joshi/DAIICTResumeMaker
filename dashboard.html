@@ -39,6 +39,12 @@
 
   <!-- Start your project here-->
   <a href="helpPage.html" class="my-help"><b>?</b></a>
+
+  <div id="crush" class="LovelyPresent">
+    <img src="img/girl_in_love-512.png" alt="A Lovely present" height="100px" width="100px">
+    <img src="img/heart.png" alt="" height="0" width="0">
+  </div>
+
   <!--Main Navigation-->
   <header class="my-fixed-tab">
     <!--Navbar-->
@@ -106,7 +112,7 @@
               <h4 class="card-title">DA-IICT Regular</h4>
               <p class="card-text fontwhite">DA-IICT | Student Placement Cell
                 recommanded resume format for on-campus interviews</p>
-              <a id="prev-resume-daiict" title="Click to preview"  href="#">
+              <a id="prev-resume-daiict" title="Click to preview" href="#">
                 <img src="img/resumes/daiict.png" class="card-img-top get-big">
               </a>
               <a id="select-link-1" href="resume_daiict_regular.html" class="btn-select fontwhite">Select</a>
@@ -116,12 +122,12 @@
 
         <div class="col-md-4">
           <div class="card text-center black-transparent">
-            <small class="tag">sharable!</small>
+            <small class="tag">sharable<span class="glyphicon glyphicon-grain" area-hidden="true"></span></small>
             <div class="card-body">
               <h4 class="card-title">DA-IICT Classic</h4>
               <p class="card-text fontwhite">DA-IICT | Classic version of
                 recommanded resume format for on-campus interviews</p>
-              <a id="prev-resume-daiict-classic" title="Click to preview"   >
+              <a id="prev-resume-daiict-classic" title="Click to preview">
                 <img src="img/resumes/daiict_classic.png" class="card-img-top get-big" alt=".......">
               </a>
               <a id="select-link-2" href="resume_daiict_classic.html" class="btn-select fontwhite">Select</a>
@@ -134,7 +140,7 @@
             <div class="card-body">
               <h4 class="card-title">Elon Musk Style</h4>
               <p class="card-text fontwhite">Standard one page resume. Best suited for professional employees.</p>
-              <a id="prev-resume-elon-musk" title="Click to preview"  href="#">
+              <a id="prev-resume-elon-musk" title="Click to preview" href="#">
                 <img src="img/resumes/elon-musk-one-page-resume.png" class="card-img-top get-big" alt=".......">
               </a>
               <a id="select-link-3" href="resume_elon_musk.html" class="btn-select fontwhite">Select</a>
@@ -199,6 +205,48 @@
   <script src="app.js"></script>
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <script>
+    var id = setInterval(() => {
+      var crush = document.getElementById('crush');
+      crush.getElementsByTagName('img')[0].setAttribute('width', '120px');
+      crush.getElementsByTagName('img')[0].setAttribute('height', '120px');
+      crush.style.paddingLeft = 0;
+      crush.style.paddingTop = 0;
+      setTimeout(() => {
+        crush.getElementsByTagName('img')[0].setAttribute('width', '100px');
+        crush.getElementsByTagName('img')[0].setAttribute('height', '100px');
+        crush.style.paddingLeft = '10px';
+        crush.style.paddingTop = '10px';
+      }, 1000);
+    }, 1800);
+
+
+    crush.onclick = function () {
+      clearInterval(id);
+
+      crush.style.top = '45%';
+      crush.style.left = '45%';
+
+      setTimeout(() => {
+        crush.getElementsByTagName('img')[0].setAttribute('height', '0');
+        crush.getElementsByTagName('img')[0].setAttribute('width', '0');
+
+        setTimeout(() => {
+          crush.style.left = '-30%';
+          crush.style.top = '-100%';
+          crush.getElementsByTagName('img')[1].setAttribute('height', '3000px');
+          crush.getElementsByTagName('img')[1].setAttribute('width', '3000px');
+
+          setTimeout(() => {
+            crush.style.opacity = 0;
+          }, 500);
+        }, 500);
+      
+      }, 500);
+
+    };
+  </script>
+
+  <script>
     var previewisON = false;
 
     document.getElementById('prev-resume-daiict').onclick =
@@ -209,7 +257,7 @@
         document.getElementById('preview-div').style.opacity = 1;
         document.getElementById('prev-cover').style.opacity = 1;
         document.getElementById('preview-div').style.zIndex = 1000;
-        document.getElementById('prev-cover').style.zIndex = 1000; 
+        document.getElementById('prev-cover').style.zIndex = 1000;
         document.getElementById('close-preview').style.opacity = 1;
         document.getElementById('close-preview').style.zIndex = 1000;
       };

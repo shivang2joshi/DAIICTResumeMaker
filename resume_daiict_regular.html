@@ -230,6 +230,7 @@
                                     <tfoot>
                                         <tr>
                                             <td colspan="4">
+                                                <button class="addButton" onclick="arrange(this)">Arrange</button>
                                                 <button id="add-education" class="addButton"
                                                     onclick="addEducation()">Add</button>
                                                 <button id="remove-education" class="removeButton small-btn"
@@ -272,6 +273,7 @@
                                     <tfoot>
                                         <tr>
                                             <td colspan="2">
+                                                
                                                 <button id="add-skill" class="addButton" onclick="addSkills()">Technical
                                                     Electives</button>
                                                 <button id="remove-skill" class="removeButton invisible"
@@ -329,6 +331,7 @@
 
                                         <tr>
                                             <td colspan="3" class="text-right">
+                                                    <button class="addButton" onclick="arrange(this)">Arrange</button>
                                                 <button id="add-internship" class="addButton"
                                                     onclick="addInternships()">Add</button>
                                                 <button id="remove-internship" class="removeButton"
@@ -355,7 +358,7 @@
                                     <tbody>
 
                                         <tr>
-                                            <td valign="top" class="w-25">
+                                            <td valign="top" class="w-20">
                                                 <p contenteditable="true" spellcheck="true" class="input-field"
                                                     onclick="selectAll()"><b>Name of
                                                         the
@@ -365,7 +368,7 @@
                                                         Prof.
                                                         XYZ</i></p>
                                             </td>
-                                            <td valign="top" class="w-50 input-field" contenteditable="true"
+                                            <td valign="top" class="w-60 input-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">
                                                 <p>
                                                     Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -378,7 +381,7 @@
                                                     amet.
                                                 </p>
                                             </td>
-                                            <td valign="top" class="w-25 text-right">
+                                            <td valign="top" class="w-20 text-right">
                                                 <p class="input-field" contenteditable="true" spellcheck="true"
                                                     onclick="selectAll()">(Feb, 2018 - Mar, 2018)</p>
                                                 <p class="input-field" contenteditable="true" spellcheck="true"
@@ -390,6 +393,7 @@
 
                                         <tr>
                                             <td colspan="3" class="text-right">
+                                                    <button class="addButton" onclick="arrange(this)">Arrange</button>
                                                 <button id="add-project" class="addButton"
                                                     onclick="addProjects()">Add</button>
                                                 <button id="remove-project" class="removeButton"
@@ -460,19 +464,19 @@
                                         <tr>
                                             <td valign="top">
                                                 <ul id="hobbies-list">
-                                                    
+
                                                 </ul>
                                             </td>
                                         </tr>
                                     </thead>
-                                    
+
                                     <tfoot>
                                         <tr>
                                             <td>
                                                 <button id="add-hobby" class="addButton small-btn"
-                                                onclick="addtoList('hobbies-list')">Add</button>
+                                                    onclick="addtoList('hobbies-list')">Add</button>
                                                 <button id="remove-hobby" class="removeButton small-btn"
-                                                onclick="removeRow('hobbies-list')">Remove</button>
+                                                    onclick="removeRow('hobbies-list')">Remove</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -494,7 +498,7 @@
     <script>
         //$('#education-table').sortable();
 
-        document.body.onload = function () {
+        /*document.body.onload = function () {
             document.getElementById('message').classList.remove('invisible');
             setTimeout(() => {
                 document.getElementById('message').style.opacity = 1;
@@ -508,15 +512,19 @@
             setTimeout(() => {
                 document.getElementById('resume').style.opacity = 1;
             }, 2500);
-        }
+        }*/
+        /**/
+        document.getElementById('resume').style.opacity = 1;
+        document.getElementById('message').style.opacity = 1;
+        /**/
 
         //controls handler
-        var isPreviewClicked = true;
+        var isPreviewClicked = true,
+            user,
+            dbref,
+            isUserExists = true,
+            snapshotloaded = false;
 
-        var user;
-        var dbref;
-        var isUserExists = true;
-        var snapshotloaded = false;
         firebase.auth().onAuthStateChanged(function (curruser) {
             if (curruser) {
                 user = curruser;
@@ -525,7 +533,7 @@
                 // this is not working as desired------
                 //checking if user is not first time visitor
                 if (dbref != null) {
-                    //loadResume();
+                    loadResume();
                 } else
                     console.log("First time visitor | Default data loaded");
                 //for first time user
