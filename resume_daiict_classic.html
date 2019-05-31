@@ -93,15 +93,9 @@
                             <li><button id="save-doc" class="btn-select" onclick="saveResume()">Save</button></li>
                             <li><button id="preview-doc" class="btn-select" onclick="previewResume()">Preview</button>
                             </li>
-                            <li><button id="download-doc" class="btn-select">Download</button></li>
-                            <li><button id="print-doc" class="btn-select" onclick="printResume()">Print/Save
-                                    PDF</button></li>
-                            <li style="display:none">
-                                <script src="https://apis.google.com/js/platform.js" async defer></script>
-                                <div id="savetodrive" class="g-savetodrive" data-src="/files/resume_daiict_classic.pdf"
-                                    data-filename="Resume_Daiict.pdf" data-sitename="CVMaker">
-                                </div>
-                            </li>
+                            <li><button id="download-doc" class="btn-select invisible">Download</button></li>
+                            <li><button id="print-doc" class="btn-select" onclick="printResume()">Download/Print</button></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -113,15 +107,14 @@
                 <div id="message" class="message-section invisible">
                     <small class="fontblack">
                         <ol class="text-left">
-                            <li>Use Google Chrome for Best experience.</li>
-                            <li>Spelling mistakes</li>
-                            <ul>
-                                <li>right click for suggestions and select correct spelling</li>
-                            </ul>
-                            <li>Click on <b>Save</b> for saving data into database</li>
-                            <li>
-                                While using <b>Print/Save PDF</b> kindly uncheck <b>header and footer</b>
-                            </li>
+                                <li>Use <b>Google Chrome</b> for Best experience.</li>
+                                <li>Spelling mistakes</li>
+                                <ul>
+                                    <li>right click for suggestions and select correct spelling</li>
+                                </ul>
+                                <li>
+                                    While using <b>Download/Print</b> kindly uncheck <b>header and footer</b>
+                                </li>
                         </ol>
                     </small>
                 </div>
@@ -261,7 +254,7 @@
                                             <button id="add-skill" class="addButton" onclick="addSkills()">Technical
                                                 Electives</button>
                                             <button id="remove-skill" class="removeButton invisible"
-                                                onclick="removeRow('skills-table')">Remove</button>
+                                                onclick="removeRow('skills-table',this)">Remove</button>
                                         </td>
                                     </tr>
                                     <!---->
@@ -279,7 +272,7 @@
                                     <tr>
                                         <td valign="top" class="w-20 input-field" contenteditable="true"
                                             spellcheck="true" onclick="selectAll()">
-                                            <b>Name of Organization</b>
+                                            <b>Name of Organization (Rural/Industrial)</b>
                                         </td>
                                         <td valign="top" class="w-60">
                                             <p contenteditable="true" spellcheck="true" class="input-field"
@@ -296,10 +289,11 @@
                                                     Mr.
                                                     xyz</i></p>
                                         </td>
-                                        <td valign="top" class="w-20 text-right input-field" contenteditable="true"
-                                            spellcheck="true" onclick="selectAll()">
-                                            <p>(Dec 2017 - Jan 2018)</p>
-                                            <p>Team Size - xx</p>
+                                        <td valign="top" class="w-20 text-right">
+                                            <p class="input-field"  contenteditable="true"
+                                            spellcheck="true" onclick="selectAll()">(Dec 2017 - Jan 2018)</p>
+                                            <p class="input-field" contenteditable="true"
+                                            spellcheck="true" onclick="selectAll()">Team Size - xx</p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -322,7 +316,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td valign="top" class="w-25">
+                                        <td valign="top" class="w-20">
                                             <p contenteditable="true" spellcheck="true" class="input-field"
                                                 onclick="selectAll()"><b>Name of
                                                     the
@@ -343,10 +337,11 @@
                                                 scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit amet.
                                             </p>
                                         </td>
-                                        <td valign="top" class="w-25 text-right input-field" contenteditable="true"
-                                            spellcheck="true" onclick="selectAll()">
-                                            <p>(Feb, 2018 - Mar, 2018)</p>
-                                            <p>Team Size - 10</p>
+                                        <td valign="top" class="w-30 text-right ">
+                                            <p class="input-field" contenteditable="true"
+                                            spellcheck="true" onclick="selectAll()">(Feb, 2018 - Mar, 2018)</p>
+                                            <p class="input-field" contenteditable="true"
+                                            spellcheck="true" onclick="selectAll()">Team Size - 10</p>
                                         </td>
                                     </tr>
 
@@ -365,15 +360,11 @@
                                 <table class="w-100 my-side-line">
                                     <tbody>
                                         <tr style="display:flex; justify-content: space-between">
-                                            <td class="w-50">
+                                           <td class="w-50">
                                                 <table class="w-100 section">
                                                     <tr>
                                                         <td colspan="2" class="section-header">
                                                             <h3>POSITIONS OF RESPONSIBILITY</h3>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td valign="top">
                                                             <ul id="positions-list" class="list">
 
                                                             </ul>
@@ -395,10 +386,6 @@
                                                     <tr>
                                                         <td colspan="2" class="section-header">
                                                             <h3>INTERESTS AND HOBBIES</h3>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td valign="top">
                                                             <ul id="hobbies-list">
                                                             </ul>
                                                         </td>
@@ -413,6 +400,7 @@
                                                     </tr>
                                                 </table>
                                             </td>
+                                            
                                         </tr>
                                         <tr>
                                             <td class="text-center">
@@ -463,6 +451,7 @@
                 </div>
             </div>
     </main>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
@@ -529,6 +518,7 @@
                         document.getElementById('sharedlink').value = "Your link will appear here. click to select and copy.";
                         togglebtn.innerText = "Link Sharing is OFF";
                     }    
+                
                 };
 
 

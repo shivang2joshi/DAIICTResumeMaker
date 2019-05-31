@@ -5,11 +5,34 @@ h3 {
 #user-photo {
     border-radius: 23.5px;
 }
-
+#stud-name{
+    font-weight: 400;
+}
 
 .card-text {
     display: block;
     min-height: 4rem;
+}
+
+.quotes {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5% 10%;
+    margin: 8% 10% 2% 10%;
+    border: 1px solid rgb(80, 80, 80);
+    border-radius: 10px;
+    text-align: center;
+    transition: 1s ease-in-out;
+    font-family: 'Stylish';
+    font-size: 18pt;
+}
+
+#quote-text {
+    transition: 1s ease-in-out;
+    overflow: hidden;
+}
+
+#quote-author {
+    transition: 1s ease-in-out;
 }
 
 .message-section {
@@ -19,8 +42,20 @@ h3 {
     text-align: center;
     padding: 5% 10%;
     background: rgba(51, 255, 0, 0.4);
-    opacity: 0;
     transition: .2s ease-in;
+    opacity: 0;
+}
+
+.tag {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 1px;
+    border-radius: 1px;
+    margin: 2% 2%;
+    text-align: center;
+    padding: 1% 2%;
+    background: rgba(51, 255, 0, 0.4);
 }
 
 .my-fixed-tab {
@@ -173,7 +208,8 @@ h3 {
     box-shadow: 0px 5px 100px rgba(0, 0, 0, 0.952);
     transition: 0.5s ease-in;
 }
-.preview-cover{
+
+.preview-cover {
     position: absolute;
     display: block;
     width: 100%;
@@ -215,7 +251,6 @@ h3 {
     border-radius: 4px;
     color: black;
     margin: 5px 10px;
-    background: inherit;
     transition: .2s ease;
 }
 
@@ -269,6 +304,10 @@ h3 {
     width: 20%;
 }
 
+.w-25 {
+    width: 25%;
+}
+
 .w-30 {
     width: 30%;
 }
@@ -305,25 +344,26 @@ h3 {
     display: inline-block;
 }
 
-#resume{
-    opacity:0;
+#resume {
+    opacity: 0;
     transition: .7s ease-in;
 }
 
 .my-side-line {
-    border-left: 4px solid rgb(14, 2, 80);
+    border-left: 5px solid rgb(14, 2, 80);
     padding-left: 20px;
     border-collapse: separate;
 }
 
-.head-field{
+.head-field {
     display: inline-block;
-    min-width:50px;
+    min-width: 50px;
 }
 
-.input-field:hover{
+.input-field:hover {
     background: #e1f5c7b0;
 }
+
 .invisible {
     display: none;
 }
@@ -344,39 +384,43 @@ table:nth-child(n+2) tr:first-child{
 .addButton {
     margin: 10px 5px;
     padding: 5px 14px;
-    background: rgb(128, 255, 128);
-    color: black;
+    background: rgb(51, 38, 224);
+    color: white;
     border: none;
     border-radius: 3px;
     font-size: 11pt;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.27);
+    font-weight: 500;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.27);
 }
 
 .removeButton {
     margin: 10px 5px;
     padding: 5px 14px;
-    background: rgba(255, 0, 0, 0.596);
-    color: black;
+    background: rgba(255, 0, 0, 0.698);
+    color: white;
     border: none;
     border-radius: 3px;
     font-size: 11pt;
+    font-weight: 500;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.27);
 }
 
 .addButton:hover {
-    margin: 0px 5px;
-    font-size: 14pt;
+    font-size: 13pt;
     transition-duration: .3s;
 }
 
 .removeButton:hover {
-    margin: 0px 0px;
-    font-size: 14pt;
+    font-size: 13pt;
     transition-duration: .3s;
 }
 
 .small-btn {
-    font-size: 9pt;
+    font-size: 10pt;
+}
+
+.small-btn:hover {
+    font-size: 11pt;
 }
 
 .my-resume-page {
@@ -437,14 +481,15 @@ table:nth-child(n+2) tr:first-child{
     }
 }
 
-textarea{
+textarea {
     border: 1px solid grey;
     border-radius: 5px;
     padding: 5px;
-    font-size:11pt;
+    font-size: 11pt;
     color: grey;
-    margin: 0;  
+    margin: 0;
 }
+
 /*
 .form-group {
     border: 1px solid white;

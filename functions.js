@@ -154,29 +154,33 @@ function previewResume() {
     return "preview successful";
 }
 
-function loadResume(template = -1, ref=null) {
+function loadResume(template = -1, ref = null) {
 
     if (template == -1)
         template = document.getElementById('template-name').innerHTML;
     //retrieve data    
-    
+
     if (ref == null)
         ref = firebase.database().ref("users/" + user.uid + "/" + template);
-    
+
     ref.on("value", function (snapshot) {
         //console.log(snapshot.val());
         var tablerows;
         var i, j;
 
         //Heading
-        document.getElementById('stud-name')
-            .innerHTML = "" + snapshot.child('name').val();
-        document.getElementById('e-mail')
-            .innerHTML = "" + snapshot.child('email').val();
-        document.getElementById('dob')
-            .innerHTML = "" + snapshot.child('dob').val();
-        document.getElementById('address')
-            .innerHTML = "" + snapshot.child('address').val();
+        if (snapshot.child('name').val())
+            document.getElementById('stud-name')
+                .innerHTML = "" + snapshot.child('name').val();
+        if (snapshot.child('email').val() != null)
+            document.getElementById('e-mail')
+                .innerHTML = "" + snapshot.child('email').val();
+        if (snapshot.child('dob').val() != null)
+            document.getElementById('dob')
+                .innerHTML = "" + snapshot.child('dob').val();
+        if (snapshot.child('address').val() != null)
+            document.getElementById('address')
+                .innerHTML = "" + snapshot.child('address').val();
 
         //Education
         tablerows = document.getElementById('education-table').rows;
@@ -249,14 +253,17 @@ function loadResume(template = -1, ref=null) {
         }
 
         //positions
-        document.getElementById('positions-list')
-            .innerHTML = snapshot.child('positions').val();
+        if (snapshot.child('positions').val() != null)
+            document.getElementById('positions-list')
+                .innerHTML = snapshot.child('positions').val();
         //hobbies
-        document.getElementById('hobbies-list')
-            .innerHTML = snapshot.child('hobbies').val();
+        if (snapshot.child('hobbies').val() != null)
+            document.getElementById('hobbies-list')
+                .innerHTML = snapshot.child('hobbies').val();
         //positions
-        document.getElementById('awards-list')
-            .innerHTML = snapshot.child('awards').val();
+        if (snapshot.child('awards').val() != null)
+            document.getElementById('awards-list')
+                .innerHTML = snapshot.child('awards').val();
 
         return "user data loaded from latest saved database";
     }, function (error) {
@@ -529,10 +536,14 @@ function popRegister() {
 
 
 var newCellPlaceholder = 'Click to select';
+function removeButtonHTML(tableid) {
+    return '<button class="removeButton small-btn" onclick="removeRow(\'' + tableid + '\',this)">Remove</button>';
+}
+
 //resume addButtons utility
 function addEducation() {
-    var lastrowindex = document.getElementById('education-table').rows.length - 1;
-    var newrow = document.getElementById('education-table').insertRow(lastrowindex);
+
+    var newrow = document.getElementById('education-table').tBodies[0].insertRow(-1);
     var cell = newrow.insertCell(0);
     cell.setAttribute('contenteditable', "true");
     cell.setAttribute('spellcheck', 'true');
@@ -557,13 +568,16 @@ function addEducation() {
     cell.setAttribute('onclick', 'selectAll()');
     cell.setAttribute('class', 'text-center');
     cell.innerHTML = newCellPlaceholder;
+
+    /*cell = newrow.insertCell(-1);
+    cell.innerHTML = removeButtonHTML('education-table');*/
     // -1 is for appending at last
     //console.log('added education');
 }
 
 function addSkills() {
-    var skilltable = document.getElementById('skills-table');
-    var lastrowindex = skilltable.rows.length - 1;
+    var skilltable = document.getElementById('skills-table').tBodies[0];
+    var lastrowindex = skilltable.rows.length;
     var newrow = skilltable.insertRow(lastrowindex);
     var cell = newrow.insertCell(0);
     cell.innerHTML = '<b>Technical Electives</b>';
@@ -581,9 +595,10 @@ function addSkills() {
 }
 
 function addInternships() {
-    var internshipstable = document.getElementById('internships-table');
-    var lastrowindex = internshipstable.rows.length - 1;
+    var internshipstable = document.getElementById('internships-table').tBodies[0];
+    var lastrowindex = internshipstable.rows.length;
     var newrow = internshipstable.insertRow(lastrowindex);
+   
     var cell = newrow.insertCell(0);
     cell.setAttribute('valign', 'top');
     cell.setAttribute('contenteditable', "true");
@@ -593,44 +608,52 @@ function addInternships() {
 
     cell = newrow.insertCell(-1);
     cell.setAttribute('valign', 'top');
-    cell.setAttribute('contenteditable', "true");
-    cell.setAttribute('spellcheck', 'true');
-    cell.setAttribute('onclick', 'selectAll()');
-    cell.innerHTML = '<p>' + newCellPlaceholder + '</p><p><i>' + newCellPlaceholder + '</i></p>';
+    cell.innerHTML = '<p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
+        + newCellPlaceholder
+        + '</p><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()"><i>'
+        + newCellPlaceholder
+        + '</i></p>';
 
     cell = newrow.insertCell(-1);
     cell.setAttribute('valign', 'top');
-    cell.setAttribute('contenteditable', "true");
-    cell.setAttribute('spellcheck', 'true');
-    cell.setAttribute('onclick', 'selectAll()');
-    cell.innerHTML = '<p>' + newCellPlaceholder + '</p><p>' + newCellPlaceholder + '</p>';
+    cell.setAttribute('class', 'w-20 text-right');
+    cell.innerHTML = '<p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
+        + newCellPlaceholder
+        + '</p><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
+        + newCellPlaceholder
+        + '</p>';
+
 }
 
 function addProjects() {
-    var projectstable = document.getElementById('projects-table');
-    var lastrowindex = projectstable.rows.length - 1;
+    var projectstable = document.getElementById('projects-table').tBodies[0];
+    var lastrowindex = projectstable.rows.length;
     var newrow = projectstable.insertRow(lastrowindex);
     var cell = newrow.insertCell(0);
     cell.setAttribute('valign', 'top');
-    cell.setAttribute('contenteditable', "true");
-    cell.setAttribute('spellcheck', 'true');
-    cell.setAttribute('onclick', 'selectAll()');
-    cell.innerHTML = '<p><b>' + newCellPlaceholder + '</b></p><p><i>' + newCellPlaceholder + '</i></p>';
+    cell.innerHTML = '<p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()"><b>'
+        + newCellPlaceholder
+        + '</b></p><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()"><i>'
+        + newCellPlaceholder
+        + '</i></p>';
 
     cell = newrow.insertCell(-1);
     cell.setAttribute('valign', 'top');
     cell.setAttribute('contenteditable', "true");
     cell.setAttribute('spellcheck', 'true');
     cell.setAttribute('onclick', 'selectAll()');
+    cell.setAttribute('class', 'input-field');
     cell.innerHTML = '<p>' + newCellPlaceholder + '</p>';
 
     cell = newrow.insertCell(-1);
     cell.setAttribute('valign', 'top');
     cell.setAttribute('class', 'text-right');
-    cell.setAttribute('contenteditable', "true");
-    cell.setAttribute('spellcheck', 'true');
-    cell.setAttribute('onclick', 'selectAll()');
-    cell.innerHTML = '<p>' + newCellPlaceholder + '</p><p>' + newCellPlaceholder + '</p>';
+    cell.innerHTML = '<p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
+        + newCellPlaceholder
+        + '</p><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
+        + newCellPlaceholder
+        + '</p>';
+
 
 }
 
@@ -647,19 +670,26 @@ function addtoList(list_id) {
 
 function addAchievements() {
     document.getElementById('awards-table').style.display = 'inline';
+    document.getElementById('awards-hr').style.display = 'block';
     setTimeout(function () {
         document.getElementById('awards-table').style.opacity = 1;
+        document.getElementById('awards-hr').style.opacity = 1;
     }, 1);
     document.getElementById('ach-btn').classList.add('invisible');
 }
 
 //resume removeButtons utility
-function removeRow(tableid) {
+function removeRow(tableid, element = null) {
 
     var list;
+    var lastrowindex;
+
     if (tableid == 'skills-table') {
         document.getElementById('remove-skill').classList.add('invisible');
         document.getElementById('add-skill').classList.remove('invisible');
+        lastrowindex = document.getElementById(tableid).rows.length - 1;
+        document.getElementById(tableid).deleteRow(lastrowindex - 1);
+        return;
     } else if (tableid == 'hobbies-list') {
         list = document.getElementById('hobbies-list');
         list.removeChild(list.lastChild);
@@ -670,18 +700,23 @@ function removeRow(tableid) {
         list.removeChild(list.lastChild);
         return;
     }
-
-
-    var lastrowindex = document.getElementById(tableid).rows.length - 1;
+    /*
+    var rowindex = element.parentNode.parentNode.rowIndex;
+    document.getElementById(tableid).deleteRow(rowindex);
+    */
+    lastrowindex = document.getElementById(tableid).rows.length - 1;
     printf(lastrowindex);
     if ((tableid != 'education-table' && lastrowindex > 1) || (tableid == 'education-table' && lastrowindex > 2))
         document.getElementById(tableid).deleteRow(lastrowindex - 1);
+
 }
 
 function removeAchievements() {
     document.getElementById('awards-table').style.opacity = 0;
+    document.getElementById('awards-hr').style.opacity = 0;
     setTimeout(function () {
         document.getElementById('ach-btn').classList.remove('invisible');
         document.getElementById('awards-table').style.display = 'none';
+        document.getElementById('awards-hr').style.display = 'none';
     }, 600);
 }

@@ -13,7 +13,7 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
-    <title>DA-IICT Template</title>
+    <title>Shared Document</title>
     <link rel="icon" type="image/x-icon" href="img/daiictlogo.jpg">
 
     <!-- Firebase App is always required and must be first -->
@@ -52,8 +52,7 @@
                 <div class="collapse navbar-collapse" id="basicExampleNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link  waves-effect waves-light"
-                            > Shared Document (Read Only)
+                            <a class="nav-link  waves-effect waves-light"> Shared Document (Read Only)
                             </a>
                         </li>
                     </ul>
@@ -95,6 +94,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <h3 id="disabledmessage" style="display: block; text-align: center; color:grey" class="invisible">
+                        <br>
+                        Looks like your friend has disabled the link :(
+                    </h3>
                     <div id="resume" class="container my-resume-page">
                         <div id="resume-page-1" class="row">
                             <div class="col-md-12">
@@ -431,19 +434,25 @@
 
         document.body.onload = function () {
             setTimeout(() => {
-                document.getElementById('resume').style.opacity = 1;
-            }, 2500);
-
-            firebase.database().ref("users/" + params[0]).on("value",
+                
+                firebase.database().ref("users/" + params[0]).on("value",
                 function (snap) {
                     if (snap.child('sharing').val() == 'on') {
                         loadshareddata = true;
                         ref = firebase.database().ref("users/" + params[0] + "/" + params[1]);
                         //printf(params[1], ref);
                         loadResume(params[1], ref);
+                        document.getElementById('resume').style.opacity = 1;
+                        document.getElementById('print-doc').removeAttribute('disabled');
+                        document.getElementById('disabledmessage').classList.add('invisible');
+                    } else {
+                        document.getElementById('resume').style.opacity=0;
+                        document.getElementById('disabledmessage').classList.remove('invisible');
+                        document.getElementById('print-doc').setAttribute('disabled','true');
                     }
                 });
-
+                
+            }, 2500);
         }
     </script>
 
