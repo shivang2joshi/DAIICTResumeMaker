@@ -28,47 +28,49 @@
 
     hurray! your rows inside tbody are arrangable now.
     with JQueryUI Plugin - sortable.
-*/ 
+*/
 
-function EnableDragArrange(){
+function EnableDragArrange(tablebody) {
 
     $('table tbody').sortable({
-        animate:150,
+        animation: 150,
         placeholder: 'rowbackground',    /*name of the CSS class*/
     });
-    
+
 }
 
-function DestroyDragArrange(){
+function DestroyDragArrange() {
     $('table tbody').sortable("destroy");
 }
 
 function arrange(element) {
 
-    var tablerows = element.parentNode  //td
-    .parentNode //tr
-    .parentNode //tfoot
-    .parentNode //table
-    .tBodies[0].rows;
-    
-    if(element.innerHTML == "Arrange"){       
-        for(var i=0;i<tablerows.length;i++)
-        {
+
+    var tablebody =
+        element.parentNode  //td
+            .parentNode //tr
+            .parentNode //tfoot
+            .parentNode //table
+            .tBodies[0],
+        tablerows = tablebody.rows;
+
+    if (element.innerHTML == "Arrange") {
+        for (var i = 0; i < tablerows.length; i++) {
             tablerows[i].cells[0].style.paddingLeft = '10px';
             tablerows[i].style.background = 'rgba(28, 206, 230, 0.753)';
             tablerows[i].style.borderTop = '3px groove white ';
             tablerows[i].style.boxShadow = '0 2px 2px rgba(0, 0, 0, 0.27)';
+            
             /*
             this effect is given to rows when arrange button is clicked
             */
         }
         element.innerText = 'Done';
-        EnableDragArrange();
+        EnableDragArrange(tablebody);
     }
 
-    else if(element.innerText == 'Done'){
-        for(var i=0;i<tablerows.length;i++)
-        {
+    else if (element.innerText == 'Done') {
+        for (var i = 0; i < tablerows.length; i++) {
             tablerows[i].cells[0].style.paddingLeft = '0px';
             tablerows[i].style.background = 'inherit';
             tablerows[i].style.borderTop = 'none';
@@ -77,7 +79,7 @@ function arrange(element) {
             this effect is given to rows when Edit button is clicked
             */
         }
-        element.innerText = 'Arrange';    
+        element.innerText = 'Arrange';
         DestroyDragArrange();
     }
 

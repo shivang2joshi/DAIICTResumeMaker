@@ -1,27 +1,49 @@
 function login() {
     /**/
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        window.location = "dashboard.html";
-        return "login done";
 
-    }).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-        window.alert(errorMessage);
-    });
-    /**/
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(function () {
+            // Existing and future Auth states are now persisted in the current
+            // session only. Closing the window would clear any existing state even
+            // if a user forgets to sign out.
+            // ...
+            // New sign-in will be persisted with session persistence.
+            
+            /*
+                this is to RESUCE Simultaneous connections to database
+                user may forget to signout and for weeks he/she remains signed in
+                thats bad.
+            */
 
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                window.location = "dashboard.html";
+                return "login done";
+                
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                window.alert(errorMessage);
+            });
+            /**/
+            
+        })
+        .catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            window.alert(errorMessage);
+        });
 }
 
 function logout() {
@@ -598,7 +620,7 @@ function addInternships() {
     var internshipstable = document.getElementById('internships-table').tBodies[0];
     var lastrowindex = internshipstable.rows.length;
     var newrow = internshipstable.insertRow(lastrowindex);
-   
+
     var cell = newrow.insertCell(0);
     cell.setAttribute('valign', 'top');
     cell.setAttribute('contenteditable', "true");
@@ -631,6 +653,7 @@ function addProjects() {
     var newrow = projectstable.insertRow(lastrowindex);
     var cell = newrow.insertCell(0);
     cell.setAttribute('valign', 'top');
+    cell.setAttribute('class', 'w-20');
     cell.innerHTML = '<p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()"><b>'
         + newCellPlaceholder
         + '</b></p><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()"><i>'
@@ -642,18 +665,17 @@ function addProjects() {
     cell.setAttribute('contenteditable', "true");
     cell.setAttribute('spellcheck', 'true');
     cell.setAttribute('onclick', 'selectAll()');
-    cell.setAttribute('class', 'input-field');
+    cell.setAttribute('class', 'w-60 input-field');
     cell.innerHTML = '<p>' + newCellPlaceholder + '</p>';
 
     cell = newrow.insertCell(-1);
     cell.setAttribute('valign', 'top');
-    cell.setAttribute('class', 'text-right');
+    cell.setAttribute('class', 'w-20 text-right');
     cell.innerHTML = '<p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
         + newCellPlaceholder
         + '</p><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
         + newCellPlaceholder
         + '</p>';
-
 
 }
 

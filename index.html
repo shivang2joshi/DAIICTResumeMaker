@@ -64,9 +64,6 @@
               </a>
             </li>
             <li class="nav-item">
-              <a id="temp-link" class="nav-link smooth-link" href="#temp-section">Templates</a>
-            </li>
-            <li class="nav-item">
               <a id="placement-link" class="nav-link smooth-link" href="#placement-cell">Placement Cell</a>
             </li>
             <li class="nav-item">
@@ -76,7 +73,7 @@
           <!-- Links -->
           <!--<button onclick="" type="button" class="my-login-button">Login</button>-->
           <ul class="navbar-nav">
-            <button id="SignInWithGoogle" onclick="login()" class="my-reg-button invisible">Login with Google</button>
+            <button id="SignInWithGoogle" onclick="login()" class="my-reg-button invisible"><i class="fab fa-google" aria-hidden="true"></i> Login</button>
             <li class="nav-item">
               <img id="user-photo" class="invisible" src="" alt="user" height="47px" width="47px">
             </li>
@@ -214,8 +211,11 @@
     <!-- Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">Team Arrow:
-      <a href="about.html"> About Us</a>
+    <div class="footer-copyright text-center py-3">Developed by
+      <a>Shivang Joshi</a>
+      &nbsp;|&nbsp;
+      GitHub Repo  
+      <a href="https://github.com/shivang2joshi/DAIICTResumeMaker"> &nbsp; <i class="fab fa-github"></i></a>
     </div>
     <!-- Copyright -->
 
@@ -226,17 +226,7 @@
   <!-- JQuery -->
 
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script src="index.js">
-    //just to make scrolling of a tags transitive
-    $(document).ready(function () {
-      $("a.smooth-link").click(
-        function (event) {
-          event.preventDefault();
-          $("html, body").animate({
-            scrollTop: $($(this).attr("href")).offset().top
-          }, 500);
-        });
-    });
+  <script src="js/myscripts/index.js">
   </script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>

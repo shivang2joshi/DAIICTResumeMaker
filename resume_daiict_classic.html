@@ -230,7 +230,7 @@
                                                 <button id="add-education" class="addButton"
                                                     onclick="addEducation()">Add</button>
                                                 <button id="remove-education" class="removeButton"
-                                                    onclick="removeRow('education-table')">Remove</button>
+                                                    onclick="removeRow('education-table')">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -245,8 +245,8 @@
                                             </td>
                                         </tr>
                                     </thead>
+                                    
                                     <tbody>
-
                                         <tr>
                                             <td class="w-30"><b>Expertise Area/Area(s) of Interest</b></td>
                                             <td id="expertise" class="w-70 input-field" contenteditable="true"
@@ -266,8 +266,8 @@
                                                 spellcheck="true" onclick="selectAll()">Android Studio etc..</td>
                                         </tr>
                                     </tbody>
-                                    <tfoot>
 
+                                    <tfoot>
                                         <tr>
                                             <td colspan="2">
                                                 <button id="add-skill" class="addButton" onclick="addSkills()">Technical
@@ -328,7 +328,7 @@
                                                 <button id="add-internship" class="addButton"
                                                     onclick="addInternships()">Add</button>
                                                 <button id="remove-internship" class="removeButton"
-                                                    onclick="removeRow('internships-table')">Remove</button>
+                                                    onclick="removeRow('internships-table')">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -358,7 +358,7 @@
                                                         Prof.
                                                         XYZ</i></p>
                                             </td>
-                                            <td valign="top" class="w-50 input-field" contenteditable="true"
+                                            <td valign="top" class="w-60 input-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">
                                                 <p>
                                                     Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -371,7 +371,7 @@
                                                     amet.
                                                 </p>
                                             </td>
-                                            <td valign="top" class="w-30 text-right ">
+                                            <td valign="top" class="w-20 text-right ">
                                                 <p class="input-field" contenteditable="true" spellcheck="true"
                                                     onclick="selectAll()">(Feb, 2018 - Mar, 2018)</p>
                                                 <p class="input-field" contenteditable="true" spellcheck="true"
@@ -387,7 +387,7 @@
                                                 <button id="add-project" class="addButton"
                                                     onclick="addProjects()">Add</button>
                                                 <button id="remove-project" class="removeButton"
-                                                    onclick="removeRow('projects-table')">Remove</button>
+                                                    onclick="removeRow('projects-table')">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -414,7 +414,7 @@
                                                             <button class="addButton small-btn"
                                                                 onclick="addtoList('positions-list')">Add</button>
                                                             <button class="removeButton small-btn"
-                                                                onclick="removeRow('positions-list')">Remove</button>
+                                                                onclick="removeRow('positions-list')">Remove Last</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -433,7 +433,7 @@
                                                             <button class="addButton small-btn"
                                                                 onclick="addtoList('hobbies-list')">Add</button>
                                                             <button class="removeButton small-btn"
-                                                                onclick="removeRow('hobbies-list')">Remove</button>
+                                                                onclick="removeRow('hobbies-list')">Remove Last</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -493,7 +493,8 @@
 
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="node_modules/sortablejs/Sortable.js"></script>
+    <script src="node_modules/sortablejs/Sortable.min.js"></script>
     <script src="sortabletable.js"></script>
 
     <script>

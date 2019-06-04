@@ -231,12 +231,12 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="4">
+                                            <td colspan="4" class="text-right">
                                                 <button class="addButton" onclick="arrange(this)">Arrange</button>
                                                 <button id="add-education" class="addButton"
                                                     onclick="addEducation()">Add</button>
                                                 <button id="remove-education" class="removeButton small-btn"
-                                                    onclick="removeRow('education-table',this)">Remove</button>
+                                                    onclick="removeRow('education-table',this)">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -336,7 +336,7 @@
                                                 <button id="add-internship" class="addButton"
                                                     onclick="addInternships()">Add</button>
                                                 <button id="remove-internship" class="removeButton"
-                                                    onclick="removeRow('internships-table')">Remove</button>
+                                                    onclick="removeRow('internships-table')">Remove Last</button>
                                             </td>
                                         </tr>
 
@@ -398,7 +398,7 @@
                                                 <button id="add-project" class="addButton"
                                                     onclick="addProjects()">Add</button>
                                                 <button id="remove-project" class="removeButton"
-                                                    onclick="removeRow('projects-table')">Remove</button>
+                                                    onclick="removeRow('projects-table')">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -426,7 +426,7 @@
                                                 <button id="add-position" class="addButton small-btn"
                                                     onclick="addtoList('positions-list')">Add</button>
                                                 <button id="remove-position" class="removeButton small-btn"
-                                                    onclick="removeRow('positions-list')">Remove</button>
+                                                    onclick="removeRow('positions-list')">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -477,7 +477,7 @@
                                                 <button id="add-hobby" class="addButton small-btn"
                                                     onclick="addtoList('hobbies-list')">Add</button>
                                                 <button id="remove-hobby" class="removeButton small-btn"
-                                                    onclick="removeRow('hobbies-list')">Remove</button>
+                                                    onclick="removeRow('hobbies-list')">Remove Last</button>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -493,13 +493,13 @@
     </main>
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="sortabletable.js"></script>
 
     <script>
         //$('#education-table').sortable();
 
-        /*document.body.onload = function () {
+        /**/
+        document.body.onload = function () {
             document.getElementById('message').classList.remove('invisible');
             setTimeout(() => {
                 document.getElementById('message').style.opacity = 1;
@@ -513,8 +513,9 @@
             setTimeout(() => {
                 document.getElementById('resume').style.opacity = 1;
             }, 2500);
-        }*/
+        }
         /**/
+        /*
         document.getElementById('resume').style.opacity = 1;
         document.getElementById('message').style.opacity = 1;
         /**/
