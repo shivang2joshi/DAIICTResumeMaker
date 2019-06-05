@@ -8,7 +8,7 @@ function login() {
             // if a user forgets to sign out.
             // ...
             // New sign-in will be persisted with session persistence.
-            
+
             /*
                 this is to RESUCE Simultaneous connections to database
                 user may forget to signout and for weeks he/she remains signed in
@@ -23,7 +23,7 @@ function login() {
                 var user = result.user;
                 window.location = "dashboard.html";
                 return "login done";
-                
+
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -36,7 +36,7 @@ function login() {
                 window.alert(errorMessage);
             });
             /**/
-            
+
         })
         .catch(function (error) {
             // Handle Errors here.
@@ -96,6 +96,7 @@ function printResume() {
         window.alert('Invalid Email!');
         return;
     }
+    document.getElementsByTagName('title')[0].innerHTML = emailfield.substring(0, 9) + "_Resume";
 
     var printdocument = document.getElementById('resume').innerHTML;
     var originalDocument = document.body.innerHTML;
@@ -121,7 +122,6 @@ function printResume() {
         document.getElementById('photocaption').style.display = 'none';
     }
     //
-
     //$(document).ready();
     //img isn't ready and its printing already
     //so set timeout and wait for image to load
@@ -134,6 +134,8 @@ function printResume() {
 }
 
 function previewResume() {
+
+    var pagemessage = document.getElementById('page-approx-message');
     var addbtns = document.getElementsByClassName("addButton");
     var rmbtns = document.getElementsByClassName("removeButton");
     var inputs = document.getElementsByTagName('input');
@@ -152,6 +154,8 @@ function previewResume() {
             document.getElementById('photocaption').style.display = 'none';
         }
 
+        pagemessage.classList.remove('invisible');
+
         document.getElementById("preview-doc").innerHTML = "Edit";
         isPreviewClicked = false; //now edit option should be available
     } else {
@@ -168,7 +172,7 @@ function previewResume() {
         if (document.getElementById('photocaption') != null) {
             document.getElementById('photocaption').style.display = 'inline-block';
         }
-
+        pagemessage.classList.add('invisible');
         document.getElementById("preview-doc").innerHTML = "Preview";
         isPreviewClicked = true; //now Preview option should be available
     }
@@ -205,72 +209,72 @@ function loadResume(template = -1, ref = null) {
                 .innerHTML = "" + snapshot.child('address').val();
 
         //Education
-        tablerows = document.getElementById('education-table').rows;
+        tablerows = document.getElementById('education-table').tBodies[0].rows;
         var edu_tabledata = snapshot.child('education').val();
         var rowstobeupdated = edu_tabledata.length;
-        while (rowstobeupdated - (tablerows.length - 3) > 0) {
+        while (rowstobeupdated - (tablerows.length) > 0) {
             addEducation();
-            tablerows = document.getElementById('education-table').rows;
+            tablerows = document.getElementById('education-table').tBodies[0].rows;
         } //addextra rows bcoz database has more rows then html table
-        while ((tablerows.length - 3) - rowstobeupdated > 0) {
+        while ((tablerows.length) - rowstobeupdated > 0) {
             removeRow('education-table');
-            tablerows = document.getElementById('education-table').rows;
+            tablerows = document.getElementById('education-table').tBodies[0].rows;
         } //remove rows bcoz default html has more rows then database
         for (i = 0; i < rowstobeupdated; i++) { //update rows
             for (j = 0; j < 4; j++)
-                tablerows[i + 2].cells[j].innerHTML = edu_tabledata[i][j];
+                tablerows[i].cells[j].innerHTML = edu_tabledata[i][j];
             //console.log(i);
         }
 
         //skills
-        tablerows = document.getElementById('skills-table').rows;
+        tablerows = document.getElementById('skills-table').tBodies[0].rows;
         var skills_tabledata = snapshot.child('skills').val();
         rowstobeupdated = skills_tabledata.length;
-        while (rowstobeupdated - (tablerows.length - 2) > 0) {
+        while (rowstobeupdated - (tablerows.length) > 0) {
             addSkills();
-            tablerows = document.getElementById('skills-table').rows;
+            tablerows = document.getElementById('skills-table').tBodies[0].rows;
         } //when database has more rows
-        while ((tablerows.length - 2) - rowstobeupdated > 0) {
+        while ((tablerows.length) - rowstobeupdated > 0) {
             removeRow('skills-table');
-            tablerows = document.getElementById('skills-table').rows;
+            tablerows = document.getElementById('skills-table').tBodies[0].rows;
         } //when defalt html page got more rows
         for (i = 0; i < rowstobeupdated; i++) {
-            tablerows[i + 1].cells[1].innerHTML = skills_tabledata[i];
+            tablerows[i].cells[1].innerHTML = skills_tabledata[i];
         }
 
         //Internships
-        tablerows = document.getElementById('internships-table').rows;
+        tablerows = document.getElementById('internships-table').tBodies[0].rows;
         var internships_tabledata = snapshot.child('internships').val();
         rowstobeupdated = internships_tabledata.length;
-        while (rowstobeupdated - (tablerows.length - 2) > 0) {
+        while (rowstobeupdated - (tablerows.length) > 0) {
             addInternships();
-            tablerows = document.getElementById('internships-table').rows;
+            tablerows = document.getElementById('internships-table').tBodies[0].rows;
         }
-        while ((tablerows.length - 2) - rowstobeupdated > 0) {
+        while ((tablerows.length) - rowstobeupdated > 0) {
             removeRow('internships-table');
-            tablerows = document.getElementById('internships-table').rows;
+            tablerows = document.getElementById('internships-table').tBodies[0].rows;
         }
         for (i = 0; i < rowstobeupdated; i++) {
             for (j = 0; j < 3; j++) {
-                tablerows[i + 1].cells[j].innerHTML = internships_tabledata[i][j];
+                tablerows[i].cells[j].innerHTML = internships_tabledata[i][j];
             }
         }
 
         //Projects
-        tablerows = document.getElementById('projects-table').rows;
+        tablerows = document.getElementById('projects-table').tBodies[0].rows;
         var projects_tabledata = snapshot.child('projects').val();
         rowstobeupdated = projects_tabledata.length;
-        while (rowstobeupdated - (tablerows.length - 2) > 0) {
+        while (rowstobeupdated - (tablerows.length) > 0) {
             addProjects();
-            tablerows = document.getElementById('projects-table').rows;
+            tablerows = document.getElementById('projects-table').tBodies[0].rows;
         }
-        while ((tablerows.length - 2) - rowstobeupdated > 0) {
+        while ((tablerows.length) - rowstobeupdated > 0) {
             removeRow('projects-table');
-            tablerows = document.getElementById('internships-table').rows;
+            tablerows = document.getElementById('internships-table').tBodies[0].rows;
         }
         for (i = 0; i < rowstobeupdated; i++) {
             for (j = 0; j < 3; j++) {
-                tablerows[i + 1].cells[j].innerHTML = projects_tabledata[i][j];
+                tablerows[i].cells[j].innerHTML = projects_tabledata[i][j];
             }
         }
 
@@ -304,41 +308,41 @@ function saveResume() {
     var tablerows;
     var i, j;
     //Education
-    tablerows = document.getElementById('education-table').rows;
+    tablerows = document.getElementById('education-table').tBodies[0].rows;
     //console.log(tablerows.length);
     var edu_tabledata = [];
-    for (i = 2; i < tablerows.length - 1; i++) {
-        edu_tabledata[i - 2] = [];
+    for (i = 0; i < tablerows.length; i++) {
+        edu_tabledata[i] = [];
         var rowcells = tablerows[i].cells;
         for (j = 0; j < 4; j++)
-            edu_tabledata[i - 2][j] = rowcells[j].innerHTML;
+            edu_tabledata[i][j] = rowcells[j].innerHTML;
         //console.log(i);
     }
-    console.log(edu_tabledata);
+    //console.log(edu_tabledata);
     //Skills
-    tablerows = document.getElementById('skills-table').rows;
+    tablerows = document.getElementById('skills-table').tBodies[0].rows;
     var skills_tabledata = [];
-    for (i = 1; i < tablerows.length - 1; i++) {
+    for (i = 0; i < tablerows.length; i++) {
         skills_tabledata.push(tablerows[i].cells[1].innerHTML);
     }
-    console.log(skills_tabledata);
+    //console.log(skills_tabledata);
     //Internships
-    tablerows = document.getElementById('internships-table').rows;
+    tablerows = document.getElementById('internships-table').tBodies[0].rows;
     var internships_tabledata = [];
-    for (i = 1; i < tablerows.length - 1; i++) {
-        internships_tabledata[i - 1] = [];
+    for (i = 0; i < tablerows.length; i++) {
+        internships_tabledata[i] = [];
         for (j = 0; j < 3; j++) {
-            internships_tabledata[i - 1][j] = tablerows[i].cells[j].innerHTML;
+            internships_tabledata[i][j] = tablerows[i].cells[j].innerHTML;
         }
         //console.log(i);
     }
     //Projects
-    tablerows = document.getElementById('projects-table').rows;
+    tablerows = document.getElementById('projects-table').tBodies[0].rows;
     var projects_tabledata = [];
-    for (i = 1; i < tablerows.length - 1; i++) {
-        projects_tabledata[i - 1] = [];
+    for (i = 0; i < tablerows.length; i++) {
+        projects_tabledata[i] = [];
         for (j = 0; j < 3; j++) {
-            projects_tabledata[i - 1][j] = tablerows[i].cells[j].innerHTML;
+            projects_tabledata[i][j] = tablerows[i].cells[j].innerHTML;
         }
     }
     //positions
@@ -678,6 +682,12 @@ function addProjects() {
         + '</p>';
 
 }
+function addSpace(element) {
+    element.parentNode.innerHTML = '<br style="padding-top:2rem;">' + element.parentNode.innerHTML;
+}
+function removeSpace(element){
+    element.parentNode.innerHTML =  '<button class="addButton" onclick="addSpace(this)">Add Space</button> <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>';
+}
 
 function addtoList(list_id) {
     var list = document.getElementById(list_id);
@@ -735,10 +745,12 @@ function removeRow(tableid, element = null) {
 
 function removeAchievements() {
     document.getElementById('awards-table').style.opacity = 0;
-    document.getElementById('awards-hr').style.opacity = 0;
+    if (document.getElementById('awards-hr') != null)
+        document.getElementById('awards-hr').style.opacity = 0;
     setTimeout(function () {
         document.getElementById('ach-btn').classList.remove('invisible');
         document.getElementById('awards-table').style.display = 'none';
-        document.getElementById('awards-hr').style.display = 'none';
+        if (document.getElementById('awards-hr') != null)
+            document.getElementById('awards-hr').style.display = 'none';
     }, 600);
 }

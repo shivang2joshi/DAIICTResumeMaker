@@ -60,6 +60,7 @@ function arrange(element) {
             tablerows[i].style.background = 'rgba(28, 206, 230, 0.753)';
             tablerows[i].style.borderTop = '3px groove white ';
             tablerows[i].style.boxShadow = '0 2px 2px rgba(0, 0, 0, 0.27)';
+            tablerows[i].style.cursor = 'hand';
             
             /*
             this effect is given to rows when arrange button is clicked

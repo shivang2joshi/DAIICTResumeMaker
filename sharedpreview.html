@@ -57,18 +57,6 @@
                         </li>
                     </ul>
                     <!-- Links -->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <img id="user-photo" src="" alt="user" height="47px" width="47px">
-                        </li>
-                        <li class="nav-item">
-                            <span id="user-name" class="nav-link">...</span>
-                        </li>
-                        <li class="nav-item">
-                            <button id="Logout" onclick="logout()" type="button"
-                                class="my-logout-button"><b>Logout</b></button>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <!-- Collapsible content -->
@@ -106,7 +94,7 @@
                                         <td id="logo" class="w-40"><img src="img/daiictlogo.jpg" width="250px"></td>
                                         <td class="intro w-70">
                                             <h1 id="stud-name" contenteditable="false" spellcheck="true"
-                                                class="input-field head-field" onclick="selectAll()">
+                                                class=" head-field" onclick="selectAll()">
                                                 Enter Full Name</h1>
                                             <p><b>Dhirubhai Ambani Institute of Information and Communication
                                                     Technology</b>
@@ -114,12 +102,12 @@
                                             <p>
                                                 <span class="w-60 inline-block"><b>Email:</b>
                                                     <span id="e-mail" contenteditable="false" spellcheck="true"
-                                                        class="input-field head-field"
+                                                        class=" head-field"
                                                         onclick="selectAll()">201601014@daiict.ac.in</span>
                                                 </span>
                                                 <span class="w-40 text-right"><b>DOB:</b>
                                                     <span id="dob" contenteditable="false" spellcheck="true"
-                                                        class="input-field head-field" onclick="selectAll()">February
+                                                        class=" head-field" onclick="selectAll()">February
                                                         27,
                                                         1998</span>
                                                 </span>
@@ -127,7 +115,7 @@
                                             <p>
                                                 <b>Address:</b>
                                                 <span id="address" contenteditable="false" spellcheck="true"
-                                                    class="input-field head-field" onclick="selectAll()">F-313, HOR-MEN,
+                                                    class=" head-field" onclick="selectAll()">F-313, HOR-MEN,
                                                     DAIICT,
                                                     Gandhinagar</span>
                                             </p>
@@ -138,194 +126,201 @@
                                 <hr>
 
                                 <table id="education-table" class="w-100 section my-side-line">
-                                    <tr>
-                                        <td colspan="4" class="section-header">
-                                            <h3>EDUCATION</h3>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th colspan="1" class="text-left">Degree</th>
-                                        <th colspan="1">University/Institute</th>
-                                        <th colspan="1">Year</th>
-                                        <th colspan="1">CPI/Aggregate</th>
-                                    </tr>
-                                    <tr>
-                                        <td id="degree" contenteditable="false" spellcheck="true" class="input-field"
-                                            onclick="selectAll()">
-                                            <b>B.Tech | ICT</b></td>
-                                        <td id="university-name" contenteditable="false" spellcheck="true"
-                                            class="input-field" onclick="selectAll()">Dhirubhai Ambani Institute of
-                                            Information and
-                                            Communication Technology</td>
-                                        <td id="grad-year" contenteditable="false" spellcheck="true" class="input-field"
-                                            onclick="selectAll()">2020</td>
-                                        <td id="cpi" class="text-center input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">xx.xx</td>
-                                    </tr>
-                                    <tr>
-                                        <td id="class12" contenteditable="false" spellcheck="true" class="input-field"
-                                            onclick="selectAll()">
-                                            <b>Higher Secondary | Class XII</b></td>
-                                        <td id="class12-school" contenteditable="false" spellcheck="true"
-                                            class="input-field" onclick="selectAll()">
-                                            Name of the Highschool (Education
-                                            Board)
-                                        </td>
-                                        <td id="class12-pass-year" contenteditable="false" spellcheck="true"
-                                            class="input-field" onclick="selectAll()">2015</td>
-                                        <td id="class12-percentage" class="text-center input-field"
-                                            contenteditable="false" spellcheck="true" onclick="selectAll()">xx%</td>
-                                    </tr>
-                                    <tr>
-                                        <td id="class10" contenteditable="false" spellcheck="true" class="input-field"
-                                            onclick="selectAll()">
-                                            <b>Secondary | Class X</b></td>
-                                        <td id="class10-school" contenteditable="false" spellcheck="true"
-                                            class="input-field" onclick="selectAll()">
-                                            Name of the Highschool (Education
-                                            Board)
-                                        </td>
-                                        <td id="class10-pass-year" contenteditable="false" spellcheck="true"
-                                            class="input-field" onclick="selectAll()">2013</td>
-                                        <td id="class10-percentage" class="text-center input-field"
-                                            contenteditable="false" spellcheck="true" onclick="selectAll()">xx%</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="text-right">
-                                            <button id="add-education" class="addButton"
-                                                onclick="addEducation()">Add</button>
-                                            <button id="remove-education" class="removeButton"
-                                                onclick="removeRow('education-table')">Remove</button>
-                                        </td>
-                                    </tr>
+                                    <thead>
+
+                                        <tr>
+                                            <td colspan="4" class="section-header">
+                                                <h3>EDUCATION</h3>
+                                            </td>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <th colspan="1" class="text-left">Degree</th>
+                                            <th colspan="1">University/Institute</th>
+                                            <th colspan="1">Year</th>
+                                            <th colspan="1">CPI/Aggregate</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td id="degree" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">
+                                                <b>B.Tech | ICT</b></td>
+                                            <td id="university-name" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">Dhirubhai Ambani Institute of
+                                                Information and
+                                                Communication Technology</td>
+                                            <td id="grad-year" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">2020</td>
+                                            <td id="cpi" class="text-center " contenteditable="false" spellcheck="true"
+                                                onclick="selectAll()">xx.xx</td>
+                                        </tr>
+                                        <tr>
+                                            <td id="class12" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">
+                                                <b>Higher Secondary | Class XII</b></td>
+                                            <td id="class12-school" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">
+                                                Name of the Highschool (Education
+                                                Board)
+                                            </td>
+                                            <td id="class12-pass-year" contenteditable="false" spellcheck="true"
+                                                class="" onclick="selectAll()">2015</td>
+                                            <td id="class12-percentage" class="text-center " contenteditable="false"
+                                                spellcheck="true" onclick="selectAll()">xx%</td>
+                                        </tr>
+                                        <tr>
+                                            <td id="class10" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">
+                                                <b>Secondary | Class X</b></td>
+                                            <td id="class10-school" contenteditable="false" spellcheck="true" class=""
+                                                onclick="selectAll()">
+                                                Name of the Highschool (Education
+                                                Board)
+                                            </td>
+                                            <td id="class10-pass-year" contenteditable="false" spellcheck="true"
+                                                class="" onclick="selectAll()">2013</td>
+                                            <td id="class10-percentage" class="text-center " contenteditable="false"
+                                                spellcheck="true" onclick="selectAll()">xx%</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
 
                                 <table id="skills-table" class="w-100 section my-side-line">
-                                    <tr>
-                                        <td colspan="2" class="section-header">
-                                            <h3>SKILLS</h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w-30"><b>Expertise Area/Area(s) of Interest</b></td>
-                                        <td id="expertise" class="w-70 input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">eg. Data Structures and
-                                            Algorithms</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w-30"><b>Programming Language(s)</b></td>
-                                        <td id="prog-languages" class="w-70 input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">C, C++, JavaScript
-                                            etc..
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="w-30"><b>Tools and Technologies</b></td>
-                                        <td id="tools" class="w-70 input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">Android Studio etc..</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                            <button id="add-skill" class="addButton" onclick="addSkills()">Technical
-                                                Electives</button>
-                                            <button id="remove-skill" class="removeButton invisible"
-                                                onclick="removeRow('skills-table')">Remove</button>
-                                        </td>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <td colspan="2" class="section-header">
+                                                <h3>SKILLS</h3>
+                                            </td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="w-30"><b>Expertise Area/Area(s) of Interest</b></td>
+                                            <td id="expertise" class="w-70 " contenteditable="false" spellcheck="true"
+                                                onclick="selectAll()">eg. Data Structures and
+                                                Algorithms</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-30"><b>Programming Language(s)</b></td>
+                                            <td id="prog-languages" class="w-70 " contenteditable="false"
+                                                spellcheck="true" onclick="selectAll()">C, C++, JavaScript
+                                                etc..
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="w-30"><b>Tools and Technologies</b></td>
+                                            <td id="tools" class="w-70 " contenteditable="false" spellcheck="true"
+                                                onclick="selectAll()">Android Studio etc..</td>
+                                        </tr>
+                                    </tbody>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" class="invisible">
+                                                <button id="add-skill" class="addButton" onclick="addSkills()">Technical
+                                                    Electives</button>
+                                                <button id="remove-skill" class="removeButton invisible"
+                                                    onclick="removeRow('skills-table')">Remove</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
                                     <!---->
                                 </table>
 
                                 <hr>
 
-                                <div class="page-break"></div>
                                 <table id="internships-table" class="w-100 section my-side-line">
-                                    <tr>
-                                        <td colspan="3" class="section-header">
-                                            <h3>PROFESSIONAL EXPERIENCE/INTERNSHIPS</h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="w-20 input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">
-                                            <b>Name of Organization</b>
-                                        </td>
-                                        <td valign="top" class="w-60">
-                                            <p contenteditable="false" spellcheck="true" class="input-field"
+                                    <thead>
+                                        <tr>
+                                            <td colspan="3" class="section-header">
+                                                <h3>PROFESSIONAL EXPERIENCE/INTERNSHIPS</h3>
+                                            </td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td valign="top" class="w-20 " contenteditable="false" spellcheck="true"
                                                 onclick="selectAll()">
-                                                Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                Quisque
-                                                pulvinar
-                                                nibh
-                                                in
-                                                scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit amet.
-                                            </p>
-                                            <p contenteditable="false" spellcheck="true" class="input-field"
-                                                onclick="selectAll()"><i>Guide:
-                                                    Mr.
-                                                    xyz</i></p>
-                                        </td>
-                                        <td valign="top" class="w-20 text-right input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">
-                                            <p>(Dec 2017 - Jan 2018)</p>
-                                            <p>Team Size - xx</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="text-right">
-                                            <button id="add-internship" class="addButton"
-                                                onclick="addInternships()">Add</button>
-                                            <button id="remove-internship" class="removeButton"
-                                                onclick="removeRow('internships-table')">Remove</button>
-                                        </td>
-                                    </tr>
+                                                <b>Name of Organization</b>
+                                            </td>
+                                            <td valign="top" class="w-60">
+                                                <p contenteditable="false" spellcheck="true" class=""
+                                                    onclick="selectAll()">
+                                                    Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit.
+                                                    Quisque
+                                                    pulvinar
+                                                    nibh
+                                                    in
+                                                    scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit
+                                                    amet.
+                                                </p>
+                                                <p contenteditable="false" spellcheck="true" class=""
+                                                    onclick="selectAll()">
+                                                    <i>Guide:
+                                                        Mr.
+                                                        xyz</i></p>
+                                            </td>
+                                            <td valign="top" class="w-20 text-right " contenteditable="false"
+                                                spellcheck="true" onclick="selectAll()">
+                                                <p>(Dec 2017 - Jan 2018)</p>
+                                                <p>Team Size - xx</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                         <div id="resume-page-2" class="row">
                             <div class="col-md-12">
                                 <table id="projects-table" class="w-100 section my-side-line">
-                                    <tr>
-                                        <td colspan="2" class="section-header">
-                                            <h3>PROJECTS</h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" class="w-25">
-                                            <p contenteditable="false" spellcheck="true" class="input-field"
-                                                onclick="selectAll()"><b>Name of
-                                                    the
-                                                    Project</b></p>
-                                            <p contenteditable="false" spellcheck="true" class="input-field"
-                                                onclick="selectAll()"><i>Guide:
-                                                    Prof.
-                                                    XYZ</i></p>
-                                        </td>
-                                        <td valign="top" class="w-50 input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">
-                                            <p>
-                                                Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                Quisque
-                                                pulvinar
-                                                nibh
-                                                in
-                                                scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit amet.
-                                            </p>
-                                        </td>
-                                        <td valign="top" class="w-25 text-right input-field" contenteditable="false"
-                                            spellcheck="true" onclick="selectAll()">
-                                            <p>(Feb, 2018 - Mar, 2018)</p>
-                                            <p>Team Size - 10</p>
-                                        </td>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <td colspan="2" class="section-header">
+                                                <h3>PROJECTS</h3>
+                                            </td>
+                                        </tr>
+                                    </thead>
 
-                                    <tr>
-                                        <td colspan="3" class="text-right">
-                                            <button id="add-project" class="addButton"
-                                                onclick="addProjects()">Add</button>
-                                            <button id="remove-project" class="removeButton"
-                                                onclick="removeRow('projects-table')">Remove</button>
-                                        </td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top" class="w-25">
+                                                <p contenteditable="false" spellcheck="true" class=""
+                                                    onclick="selectAll()">
+                                                    <b>Name of
+                                                        the
+                                                        Project</b></p>
+                                                <p contenteditable="false" spellcheck="true" class=""
+                                                    onclick="selectAll()">
+                                                    <i>Guide:
+                                                        Prof.
+                                                        XYZ</i></p>
+                                            </td>
+                                            <td valign="top" class="w-50 " contenteditable="false" spellcheck="true"
+                                                onclick="selectAll()">
+                                                <p>
+                                                    Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    elit.
+                                                    Quisque
+                                                    pulvinar
+                                                    nibh
+                                                    in
+                                                    scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit
+                                                    amet.
+                                                </p>
+                                            </td>
+                                            <td valign="top" class="w-25 text-right " contenteditable="false"
+                                                spellcheck="true" onclick="selectAll()">
+                                                <p>(Feb, 2018 - Mar, 2018)</p>
+                                                <p>Team Size - 10</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
 
                                 <hr>
@@ -347,15 +342,6 @@
                                                             </ul>
                                                         </td>
                                                     </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <button class="addButton small-btn"
-                                                                onclick="addtoList('positions-list')">Add</button>
-                                                            <button class="removeButton small-btn"
-                                                                onclick="removeRow('positions-list')">Remove</button>
-                                                        </td>
-                                                    </tr>
                                                 </table>
                                             </td>
                                             <td class="w-45">
@@ -369,14 +355,6 @@
                                                         <td valign="top">
                                                             <ul id="hobbies-list">
                                                             </ul>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <button class="addButton small-btn"
-                                                                onclick="addtoList('hobbies-list')">Add</button>
-                                                            <button class="removeButton small-btn"
-                                                                onclick="removeRow('hobbies-list')">Remove</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -397,7 +375,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td valign="top" id="awards-list" contenteditable="false"
-                                                            spellcheck="true" class="input-field" onclick="selectAll()">
+                                                            spellcheck="true" class="" onclick="selectAll()">
                                                             <p>Stood first in xyz competition.</p>
                                                             <p>Your highest rating in compititive sites.</p>
                                                         </td>
@@ -416,10 +394,7 @@
         </div>
         <div id="editor"></div>
     </main>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js">
-    </script>
+    <script src="js/jquery-3.3.1.min.js"></script>
 
     <script>
         var params = {};
@@ -434,24 +409,24 @@
 
         document.body.onload = function () {
             setTimeout(() => {
-                
+
                 firebase.database().ref("users/" + params[0]).on("value",
-                function (snap) {
-                    if (snap.child('sharing').val() == 'on') {
-                        loadshareddata = true;
-                        ref = firebase.database().ref("users/" + params[0] + "/" + params[1]);
-                        //printf(params[1], ref);
-                        loadResume(params[1], ref);
-                        document.getElementById('resume').style.opacity = 1;
-                        document.getElementById('print-doc').removeAttribute('disabled');
-                        document.getElementById('disabledmessage').classList.add('invisible');
-                    } else {
-                        document.getElementById('resume').style.opacity=0;
-                        document.getElementById('disabledmessage').classList.remove('invisible');
-                        document.getElementById('print-doc').setAttribute('disabled','true');
-                    }
-                });
-                
+                    function (snap) {
+                        if (snap.child('sharing').val() == 'on') {
+                            loadshareddata = true;
+                            ref = firebase.database().ref("users/" + params[0] + "/" + params[1]);
+                            //printf(params[1], ref);
+                            loadResume(params[1], ref);
+                            document.getElementById('resume').style.opacity = 1;
+                            document.getElementById('print-doc').removeAttribute('disabled');
+                            document.getElementById('disabledmessage').classList.add('invisible');
+                        } else {
+                            document.getElementById('resume').style.opacity = 0;
+                            document.getElementById('disabledmessage').classList.remove('invisible');
+                            document.getElementById('print-doc').setAttribute('disabled', 'true');
+                        }
+                    });
+
             }, 2500);
         }
     </script>

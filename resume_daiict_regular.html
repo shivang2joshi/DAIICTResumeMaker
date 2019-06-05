@@ -119,7 +119,10 @@
                                 <li>right click for suggestions and select correct spelling</li>
                             </ul>
                             <li>
-                                While using <b>Download/Print</b> kindly uncheck <b>header and footer</b>
+                                <b>Preview</b> to check approximate content in 1 page.
+                            </li>
+                            <li>
+                                While using <b>Download/Print</b> kindly uncheck <b>header and footer</b> and set <b>Margins</b> to <b>default</b>.
                             </li>
                         </ol>
                     </small>
@@ -130,11 +133,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div id="resume" class="container my-resume-page" style="padding:5%">
+
+                        <div id="page-approx-message" class="page-approximation invisible">
+                            <p class="text-position">Page 1 ends here &nbsp; > </p>
+                        </div>
+
                         <div id="resume-page-1" class="row">
                             <div class="col-md-12">
                                 <table class="main">
                                     <tr>
-                                        <td id="logo" class="w-30 pr-5"><img src="img/daiictlogo.jpg" width="250px"></td>
+                                        <td id="logo" class="w-30 pr-5"><img src="img/daiictlogo.jpg" width="250px">
+                                        </td>
                                         <td class="intro w-70">
                                             <h1 id="stud-name" class="input-field head-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">Enter Full Name</h1>
@@ -164,7 +173,7 @@
                                 </table>
 
                                 <hr style="border-bottom:1px inset black">
-                                
+
                                 <table id="education-table" class="w-100 section">
 
                                     <thead>
@@ -391,7 +400,6 @@
                                         </tr>
                                     </tbody>
                                     <tfoot>
-
                                         <tr>
                                             <td colspan="3" class="text-right">
                                                 <button class="addButton" onclick="arrange(this)">Arrange</button>
@@ -404,6 +412,10 @@
                                     </tfoot>
                                 </table>
                                 <hr>
+                                <div class="text-center">
+                                    <button class="addButton" onclick="addSpace(this)">Add Space</button>
+                                    <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>
+                                </div>
                                 <table class="w-100 section">
                                     <thead>
                                         <tr>

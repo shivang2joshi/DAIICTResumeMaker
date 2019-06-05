@@ -114,7 +114,10 @@
                                 <li>right click for suggestions and select correct spelling</li>
                             </ul>
                             <li>
-                                While using <b>Download/Print</b> kindly uncheck <b>header and footer</b>
+                                <b>Preview</b> to check approximate content in 1 page.
+                            </li>
+                            <li>
+                                While using <b>Download/Print</b> kindly uncheck <b>header and footer</b>  and set <b>Margins</b> to <b>default</b>.
                             </li>
                         </ol>
                     </small>
@@ -126,6 +129,12 @@
                 <div class="col-md-12">
                     <div id="resume" class="container my-resume-page">
                         <div id="resume-page-1" class="row">
+
+
+                            <div id="page-approx-message" class="page-approximation invisible">
+                                <p class="text-position">Page 1 ends here &nbsp; > </p>
+                            </div>
+
                             <div class="col-md-12">
                                 <table class="main my-side-line">
                                     <tr style="display:flex; justify-content:space-between;">
@@ -245,7 +254,7 @@
                                             </td>
                                         </tr>
                                     </thead>
-                                    
+
                                     <tbody>
                                         <tr>
                                             <td class="w-30"><b>Expertise Area/Area(s) of Interest</b></td>
@@ -395,6 +404,11 @@
 
                                 <hr>
 
+                                <div class="text-center">
+                                    <button class="addButton" onclick="addSpace(this)">Add Space</button>
+                                    <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>
+                                </div>
+
                                 <table class="w-100 my-side-line">
                                     <tbody>
                                         <tr style="display:flex; justify-content: space-between">
@@ -414,7 +428,8 @@
                                                             <button class="addButton small-btn"
                                                                 onclick="addtoList('positions-list')">Add</button>
                                                             <button class="removeButton small-btn"
-                                                                onclick="removeRow('positions-list')">Remove Last</button>
+                                                                onclick="removeRow('positions-list')">Remove
+                                                                Last</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -521,7 +536,7 @@
         var dbref;
         var isUserExists = true;
         var snapshotloaded = false;
-        var domainurl = "http://shivang2joshi.github.io/Resume-Builder/sharedpreview.html";
+        var domainurl = document.URL.substr(0, document.URL.lastIndexOf("/")) + "/sharedpreview.html";
         firebase.auth().onAuthStateChanged(function (curruser) {
             if (curruser) {
                 user = curruser;
