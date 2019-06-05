@@ -1,7 +1,7 @@
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        if(user.displayName == "Riddhi Patel" || user.email == "rdpatel@gmail.com"){
+        if(user.displayName == "Riddhi Patel" || user.email == "rdpatel3321@gmail.com"){
             document.getElementById('crush').classList.remove('invisible');
         }
     } 
