@@ -96,7 +96,7 @@ function printResume() {
         window.alert('Invalid Email!');
         return;
     }
-    document.getElementsByTagName('title')[0].innerHTML = emailfield.substring(0, 9) + "_Resume";
+    document.getElementsByTagName('title')[0].innerHTML = emailfield.substring(0, emailfield.indexOf("@")) + "_Resume";
 
     var printdocument = document.getElementById('resume').innerHTML;
     var originalDocument = document.body.innerHTML;
@@ -694,9 +694,9 @@ function addtoList(list_id) {
     var cell = document.createElement('li');
     cell.setAttribute('contenteditable', "true");
     cell.setAttribute('spellcheck', 'true');
+    cell.setAttribute('class', 'input-field');
     cell.setAttribute('onclick', 'selectAll()');
     cell.innerHTML = newCellPlaceholder;
-
     list.appendChild(cell);
 }
 
