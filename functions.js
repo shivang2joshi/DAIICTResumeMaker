@@ -685,8 +685,8 @@ function addProjects() {
 function addSpace(element) {
     element.parentNode.innerHTML = '<br style="padding-top:2rem;">' + element.parentNode.innerHTML;
 }
-function removeSpace(element){
-    element.parentNode.innerHTML =  '<button class="addButton" onclick="addSpace(this)">Add Space</button> <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>';
+function removeSpace(element) {
+    element.parentNode.innerHTML = '<button class="addButton" onclick="addSpace(this)">Add Space</button> <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>';
 }
 
 function addtoList(list_id) {
@@ -702,11 +702,13 @@ function addtoList(list_id) {
 
 function addAchievements() {
     document.getElementById('awards-table').style.display = 'inline';
-    document.getElementById('awards-hr').style.display = 'block';
     setTimeout(function () {
         document.getElementById('awards-table').style.opacity = 1;
-        document.getElementById('awards-hr').style.opacity = 1;
+        if (document.getElementById('awards-hr'))
+            document.getElementById('awards-hr').style.opacity = 1;
     }, 1);
+    if (document.getElementById('awards-hr'))
+        document.getElementById('awards-hr').style.display = 'block';
     document.getElementById('ach-btn').classList.add('invisible');
 }
 

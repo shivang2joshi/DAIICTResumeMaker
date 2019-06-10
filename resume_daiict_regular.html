@@ -116,13 +116,24 @@
                             <li>Use <b>Google Chrome</b> for Best experience.</li>
                             <li>Spelling mistakes</li>
                             <ul>
-                                <li>right click for suggestions and select correct spelling</li>
+                                <li>Right click for suggestions and select correct spelling.</li>
                             </ul>
                             <li>
                                 <b>Preview</b> to check approximate content in 1 page.
                             </li>
                             <li>
-                                While using <b>Download/Print</b> kindly uncheck <b>header and footer</b> and set <b>Margins</b> to <b>default</b>.
+                                While using <b>Download/Print</b>
+                                <ul>
+                                    <li>
+                                        set <b>Destination</b> as <b>Save as PDF</b>.
+                                    </li>
+                                    <li>
+                                        uncheck <b>header and footer</b>.
+                                    </li>
+                                    <li>
+                                        set <b>Margins</b> to <b>default</b>.
+                                    </li>
+                                </ul>
                             </li>
                         </ol>
                     </small>
@@ -147,26 +158,26 @@
                                         <td class="intro w-70">
                                             <h1 id="stud-name" class="input-field head-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">Enter Full Name</h1>
-                                            <p><b>Dhirubhai Ambani Institute of Information and Communication
+                                            <p style="font-size: 15pt;"><b>Dhirubhai Ambani Institute of Information and Communication
                                                     Technology</b></p>
                                             <p>
                                                 <span class="w-60 inline-block">
                                                     <span><b>Email:</b></span>
                                                     <span id="e-mail" class="input-field head-field"
                                                         contenteditable="true" spellcheck="true"
-                                                        onclick="selectAll()">201601014@daiict.ac.in</span>
+                                                        onclick="selectAll()">user@example.com</span>
                                                 </span>
                                                 <span class="w-40 text-right"><b>DOB:</b>
                                                     <span id="dob" class="input-field head-field" contenteditable="true"
-                                                        spellcheck="true" onclick="selectAll()"> February 27,
-                                                        1998</span>
+                                                        spellcheck="true" onclick="selectAll()"> Eg: January 1,
+                                                        1991</span>
                                                 </span>
                                             </p>
                                             <p>
                                                 <b>Address:</b>
                                                 <span id="address" contenteditable="true" class="input-field head-field"
-                                                    spellcheck="true" onclick="selectAll()">F-313, HOR-MEN, DAIICT,
-                                                    Gandhinagar</span>
+                                                    spellcheck="true" onclick="selectAll()"> Home or College
+                                                    address</span>
                                             </p>
                                         </td>
                                     </tr>
@@ -201,7 +212,7 @@
                                                 Information and
                                                 Communication Technology</td>
                                             <td id="grad-year" contenteditable="true" spellcheck="true"
-                                                class="input-field" onclick="selectAll()">2020</td>
+                                                class="input-field" onclick="selectAll()">Year of completion</td>
                                             <td id="cpi" class="text-center input-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">xx.xx</td>
 
@@ -216,7 +227,7 @@
                                                 Board)
                                             </td>
                                             <td id="class12-pass-year" contenteditable="true" spellcheck="true"
-                                                class="input-field" onclick="selectAll()">2015</td>
+                                                class="input-field" onclick="selectAll()">Year of completion</td>
                                             <td id="class12-percentage" class="text-center input-field"
                                                 contenteditable="true" spellcheck="true" onclick="selectAll()">xx%</td>
 
@@ -232,7 +243,7 @@
                                                 Board)
                                             </td>
                                             <td id="class10-pass-year" contenteditable="true" spellcheck="true"
-                                                class="input-field" onclick="selectAll()">2013</td>
+                                                class="input-field" onclick="selectAll()">Year of completion</td>
                                             <td id="class10-percentage" class="text-center input-field"
                                                 contenteditable="true" spellcheck="true" onclick="selectAll()">xx%</td>
 
@@ -323,22 +334,23 @@
                                                     scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit
                                                     amet.
                                                 </p>
-                                                <p contenteditable="true" spellcheck="true" class="input-field"
-                                                    onclick="selectAll()"><i>Guide:
-                                                        Mr.
-                                                        xyz</i></p>
+                                                <p><i>Guide:
+                                                        <span contenteditable="true" spellcheck="true"
+                                                            class="input-field head-field"
+                                                            onclick="selectAll()">Mr/Prof. xyz</span>
+                                                    </i></p>
 
                                             </td>
                                             <td valign="top" class="w-20 text-right">
                                                 <p class="input-field" contenteditable="true" spellcheck="true"
-                                                    onclick="selectAll()">(Dec 2017 - Jan 2018)</p>
-                                                <p class="input-field" contenteditable="true" spellcheck="true"
-                                                    onclick="selectAll()">Team Size - xx</p>
+                                                    onclick="selectAll()">Eg. Dec 2017 - Jan 2018</p>
+                                                <p>Team Size - <span class="input-field team-field"
+                                                        contenteditable="true" spellcheck="true"
+                                                        onclick="selectAll()">xx</span></p>
                                             </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
-
                                         <tr>
                                             <td colspan="3" class="text-right">
                                                 <button class="addButton" onclick="arrange(this)">Arrange</button>
@@ -348,7 +360,6 @@
                                                     onclick="removeRow('internships-table')">Remove Last</button>
                                             </td>
                                         </tr>
-
                                     </tfoot>
                                 </table>
                                 <hr>
@@ -373,10 +384,12 @@
                                                     onclick="selectAll()"><b>Name of
                                                         the
                                                         Project</b></p>
-                                                <p contenteditable="true" spellcheck="true" class="input-field"
-                                                    onclick="selectAll()"><i>Guide:
-                                                        Prof.
-                                                        XYZ</i></p>
+                                                <p><i>Guide:
+                                                        <span contenteditable="true" spellcheck="true"
+                                                            class="input-field head-field"
+                                                            onclick="selectAll()">Mr/Prof. xyz</span>
+                                                    </i>
+                                                </p>
                                             </td>
                                             <td valign="top" class="w-60 input-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">
@@ -393,9 +406,10 @@
                                             </td>
                                             <td valign="top" class="w-20 text-right">
                                                 <p class="input-field" contenteditable="true" spellcheck="true"
-                                                    onclick="selectAll()">(Feb, 2018 - Mar, 2018)</p>
-                                                <p class="input-field" contenteditable="true" spellcheck="true"
-                                                    onclick="selectAll()">Team Size - 10</p>
+                                                    onclick="selectAll()">Eg: June 2017 - Feb 2018</p>
+                                                <p>Team Size - <span class="input-field team-field"
+                                                        contenteditable="true" spellcheck="true"
+                                                        onclick="selectAll()">xx</span></p>
                                             </td>
                                         </tr>
                                     </tbody>
