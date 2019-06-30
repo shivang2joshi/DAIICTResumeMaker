@@ -153,12 +153,13 @@
                             <div class="col-md-12">
                                 <table class="main">
                                     <tr>
-                                        <td id="logo" class="w-30 pr-5"><img src="img/daiictlogo.jpg" width="250px">
+                                        <td id="logo" class="w-30"><img src="img/daiictlogo.jpg" width="250px">
                                         </td>
                                         <td class="intro w-70">
                                             <h1 id="stud-name" class="input-field head-field" contenteditable="true"
                                                 spellcheck="true" onclick="selectAll()">Enter Full Name</h1>
-                                            <p style="font-size: 15pt;"><b>Dhirubhai Ambani Institute of Information and Communication
+                                            <p style="font-size: 15pt;"><b>Dhirubhai Ambani Institute of Information and
+                                                    Communication
                                                     Technology</b></p>
                                             <p>
                                                 <span class="w-60 inline-block">
@@ -334,11 +335,14 @@
                                                     scelerisque bibendum. Phasellus ipsum ipsum, cursus nec sem sit
                                                     amet.
                                                 </p>
-                                                <p><i>Guide:
+                                                <p>
+                                                    <i>Guide:
                                                         <span contenteditable="true" spellcheck="true"
-                                                            class="input-field head-field"
-                                                            onclick="selectAll()">Mr/Prof. xyz</span>
-                                                    </i></p>
+                                                            class="input-field head-field" onclick="selectAll()">
+                                                            Mr/Prof. xyz
+                                                        </span>
+                                                    </i>
+                                                </p>
 
                                             </td>
                                             <td valign="top" class="w-20 text-right">
@@ -365,6 +369,14 @@
                                 <hr>
                             </div>
                         </div>
+
+                        <div class="text-center">
+                            <div class="tooltips" data-tooltip="Add space here to shift PROJECTS to next page">
+                                <button class="addButton" onclick="addSpace(this)">Add Space</button>
+                            </div>
+                            <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>
+                        </div>
+
                         <div id="resume-page-2" class="row">
                             <div class="col-md-12">
                                 <table id="projects-table" class="w-100 section">
@@ -427,7 +439,9 @@
                                 </table>
                                 <hr>
                                 <div class="text-center">
-                                    <button class="addButton" onclick="addSpace(this)">Add Space</button>
+                                    <div class="tooltips" data-tooltip="Add space here to shift following to next page">
+                                        <button class="addButton" onclick="addSpace(this)">Add Space</button>
+                                    </div>
                                     <button class="removeButton" onclick="removeSpace(this)">Remove Space</button>
                                 </div>
                                 <table class="w-100 section">
@@ -473,8 +487,9 @@
                                         <tr>
                                             <td valign="top" id="awards-list" contenteditable="true" spellcheck="true"
                                                 class="input-field" onclick="selectAll()">
-                                                <p>Stood first in xyz competition.</p>
-                                                <p>Your highest rating in compititive sites.</p>
+                                                Stood first in xyz competition.
+                                                <br>
+                                                Your highest rating in compititive sites.
                                             </td>
                                         </tr>
                                     </thead>
@@ -517,13 +532,10 @@
         </div>
         <div id="editor"></div>
     </main>
-    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="sortabletable.js"></script>
 
     <script>
-        //$('#education-table').sortable();
-
         /**/
         document.body.onload = function () {
             document.getElementById('message').classList.remove('invisible');
