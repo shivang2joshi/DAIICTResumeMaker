@@ -91,7 +91,7 @@
                             <div class="col-md-12">
                                 <table class="main my-side-line">
                                     <tr style="display:flex; justify-content:space-between;">
-                                        <td id="logo" class="w-40"><img src="img/daiictlogo.jpg" width="250px"></td>
+                                        <td id="logo" class="w-30"><img src="img/daiictlogo.jpg" width="250px"></td>
                                         <td class="intro w-70">
                                             <h1 id="stud-name" contenteditable="false" spellcheck="true"
                                                 class=" head-field" onclick="selectAll()">
@@ -289,7 +289,7 @@
 
                                     <tbody>
                                         <tr>
-                                            <td valign="top" class="w-25">
+                                            <td valign="top" class="w-20">
                                                 <p contenteditable="false" spellcheck="true" class=""
                                                     onclick="selectAll()">
                                                     <b>Name of
@@ -301,7 +301,7 @@
                                                         Prof.
                                                         XYZ</i></p>
                                             </td>
-                                            <td valign="top" class="w-50 " contenteditable="false" spellcheck="true"
+                                            <td valign="top" class="w-60 " contenteditable="false" spellcheck="true"
                                                 onclick="selectAll()">
                                                 <p>
                                                     Describe here. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -314,7 +314,7 @@
                                                     amet.
                                                 </p>
                                             </td>
-                                            <td valign="top" class="w-25 text-right " contenteditable="false"
+                                            <td valign="top" class="w-20 text-right " contenteditable="false"
                                                 spellcheck="true" onclick="selectAll()">
                                                 <p>(Feb, 2018 - Mar, 2018)</p>
                                                 <p>Team Size - 10</p>
@@ -416,7 +416,7 @@
                             loadshareddata = true;
                             ref = firebase.database().ref("users/" + params[0] + "/" + params[1]);
                             //printf(params[1], ref);
-                            loadResume(params[1], ref);
+                            loadResume(null, params[1], ref);
                             document.getElementById('resume').style.opacity = 1;
                             document.getElementById('print-doc').removeAttribute('disabled');
                             document.getElementById('disabledmessage').classList.add('invisible');

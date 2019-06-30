@@ -180,7 +180,7 @@ function previewResume() {
     return "preview successful";
 }
 
-function loadResume(template = -1, ref = null) {
+function loadResume(callback, template = -1, ref = null) {
 
     if (template == -1)
         template = document.getElementById('template-name').innerHTML;
@@ -290,6 +290,8 @@ function loadResume(template = -1, ref = null) {
         if (snapshot.child('awards').val() != null)
             document.getElementById('awards-list')
                 .innerHTML = snapshot.child('awards').val();
+
+        callback();
 
         return "user data loaded from latest saved database";
     }, function (error) {
@@ -630,10 +632,12 @@ function addInternships() {
     cell.setAttribute('contenteditable', "true");
     cell.setAttribute('spellcheck', 'true');
     cell.setAttribute('onclick', 'selectAll()');
+    cell.setAttribute('class','w-20 input-field');
     cell.innerHTML = '<b>' + newCellPlaceholder + '</b>';
 
     cell = newrow.insertCell(-1);
     cell.setAttribute('valign', 'top');
+    cell.setAttribute('class', 'w-60');
     cell.innerHTML = '<div><p contenteditable="true" spellcheck="true" class="input-field" onclick="selectAll()">'
         + newCellPlaceholder
         + '</p></div><div><p><i>' 

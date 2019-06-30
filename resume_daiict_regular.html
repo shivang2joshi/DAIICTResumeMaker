@@ -573,7 +573,18 @@
                 // this is not working as desired------
                 //checking if user is not first time visitor
                 if (dbref != null) {
-                    loadResume();
+                    loadResume(function() {
+                        var editors = document.getElementsByClassName('input-field');
+                        for (var editor of editors) {
+                            editor.addEventListener('paste',function(e){
+                                e.preventDefault();
+
+                                var text = (e.originalEvent || e).clipboardData.getData('text/plain');
+
+                                this.innerText = text;
+                            });
+                        }
+                    }); //providing a callback function to load so that it runs after loading
                 } else
                     console.log("First time visitor | Default data loaded");
                 //for first time user
